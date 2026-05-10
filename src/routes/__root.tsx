@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "ivf-prediction" },
+      { name: "description", content: "Presentation Architect transforms markdown into a premium, modern presentation website." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "ivf-prediction" },
+      { property: "og:description", content: "Presentation Architect transforms markdown into a premium, modern presentation website." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "ivf-prediction" },
+      { name: "twitter:description", content: "Presentation Architect transforms markdown into a premium, modern presentation website." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69b22c57-4752-4ee4-8849-a233556c15ba/id-preview-a3b2dd1e--7a2e9b9e-50ac-4d1e-874f-3f05ab793dff.lovable.app-1778429811815.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/69b22c57-4752-4ee4-8849-a233556c15ba/id-preview-a3b2dd1e--7a2e9b9e-50ac-4d1e-874f-3f05ab793dff.lovable.app-1778429811815.png" },
     ],
     links: [
       {
