@@ -415,12 +415,12 @@ export const slides: Slide[] = [
             <GlassCard>
               <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">Hierarchical Label Engineering</div>
               {[
-                { n:"1", t:"Live Birth", d:"Strongest signal", c:"primary" },
-                { n:"2", t:"Clinical Pregnancy", d:"Secondary signal", c:"accent" },
-                { n:"3", t:"Chemical Pregnancy", d:"Weaker signal", c:"muted-foreground" },
+                { n:"1", t:"Live Birth", d:"Strongest signal", cls:"bg-primary/15 text-primary" },
+                { n:"2", t:"Clinical Pregnancy", d:"Secondary signal", cls:"bg-accent/15 text-accent" },
+                { n:"3", t:"Chemical Pregnancy", d:"Weaker signal", cls:"bg-muted text-muted-foreground" },
               ].map((x)=>(
                 <div key={x.n} className="flex items-center gap-4 py-3 border-b border-border last:border-0">
-                  <div className={`size-9 rounded-full bg-${x.c}/15 text-${x.c} flex items-center justify-center font-semibold`}>{x.n}</div>
+                  <div className={`size-9 rounded-full flex items-center justify-center font-semibold ${x.cls}`}>{x.n}</div>
                   <div className="flex-1">
                     <div className="font-semibold">{x.t}</div>
                     <div className="text-xs text-muted-foreground">{x.d}</div>
