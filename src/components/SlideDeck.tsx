@@ -36,28 +36,33 @@ export function SlideDeck() {
 
   return (
     <div className="h-screen w-screen relative overflow-hidden">
-      {/* Top bar */}
-      <header className="fixed top-0 left-0 right-0 z-40 px-4 md:px-6 py-2.5 flex items-center justify-between glass-strong border-b border-border/50">
-        <div className="flex items-center gap-3">
-          <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-sm">IV</div>
-          <div className="hidden sm:block">
-            <div className="text-sm font-semibold leading-none">IVF Intelligence</div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-1">Investor Deck</div>
+      {/* Top area wrapper for hover */}
+      <div className="fixed top-0 left-0 right-0 z-40 h-12 md:h-16 group">
+        <div className="absolute inset-0 -translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+          {/* Top bar */}
+          <header className="px-4 md:px-6 py-2.5 flex items-center justify-between glass-strong border-b border-border/50">
+            <div className="flex items-center gap-3">
+              <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-lg">IV</div>
+              <div className="hidden sm:block">
+                <div className="text-lg font-semibold leading-none">IVF Intelligence</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-1">Investor Deck</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="hidden md:inline text-lg text-muted-foreground tabular-nums tracking-widest mr-2">
+                {String(i + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+              </span>
+              <button onClick={() => setGrid(true)} aria-label="Overview" className="size-9 rounded-lg glass hover:border-primary/40 flex items-center justify-center transition-colors">
+                <LayoutGrid className="size-4" />
+              </button>
+            </div>
+          </header>
+
+          {/* Progress */}
+          <div className="h-0.5 bg-border/30">
+            <div className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-500" style={{ width: `${((i + 1) / total) * 100}%` }} />
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="hidden md:inline text-xs text-muted-foreground tabular-nums tracking-widest mr-2">
-            {String(i + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-          </span>
-          <button onClick={() => setGrid(true)} aria-label="Overview" className="size-9 rounded-lg glass hover:border-primary/40 flex items-center justify-center transition-colors">
-            <LayoutGrid className="size-4" />
-          </button>
-        </div>
-      </header>
-
-      {/* Progress */}
-      <div className="fixed top-[48px] left-0 right-0 z-30 h-0.5 bg-border/30">
-        <div className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-500" style={{ width: `${((i + 1) / total) * 100}%` }} />
       </div>
 
       {/* Slide — fills viewport, click to advance */}
@@ -67,7 +72,7 @@ export function SlideDeck() {
           if (target.closest("button, a, [data-no-advance]")) return;
           go(i + 1);
         }}
-        className="absolute inset-0 pt-14 pb-20 cursor-pointer select-none"
+        className="absolute inset-0 pb-20 cursor-pointer select-none"
       >
         <AutoFit key={i}>{slides[i].render(i, total)}</AutoFit>
       </main>
@@ -78,7 +83,7 @@ export function SlideDeck() {
           className="size-10 rounded-full bg-muted/40 hover:bg-primary/20 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors">
           <ChevronLeft className="size-5" />
         </button>
-        <div className="px-4 text-sm font-medium tabular-nums min-w-[80px] text-center">
+        <div className="px-4 text-lg font-medium tabular-nums min-w-[80px] text-center">
           {i + 1} <span className="text-muted-foreground">/ {total}</span>
         </div>
         <button onClick={() => go(i + 1)} disabled={i === total - 1} aria-label="Next"
@@ -91,7 +96,7 @@ export function SlideDeck() {
       {grid && (
         <div data-no-advance className="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl overflow-y-auto animate-fade-up">
           <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 glass-strong border-b border-border">
-            <div className="text-sm font-semibold">All slides · {total}</div>
+            <div className="text-lg font-semibold">All slides · {total}</div>
             <button onClick={() => setGrid(false)} aria-label="Close" className="size-9 rounded-lg glass flex items-center justify-center hover:border-primary/40">
               <X className="size-4" />
             </button>
@@ -103,10 +108,10 @@ export function SlideDeck() {
                   "group text-left rounded-2xl glass p-5 aspect-video flex flex-col justify-between hover:border-primary/40 hover:-translate-y-1 transition-all",
                   k === i && "border-primary/60 glow-ring"
                 )}>
-                <div className="text-xs font-mono text-primary">{String(k + 1).padStart(2, "0")}</div>
+                <div className="text-lg font-mono text-primary">{String(k + 1).padStart(2, "0")}</div>
                 <div>
                   <div className="font-semibold text-foreground group-hover:text-gradient">{s.label}</div>
-                  <div className="text-xs text-muted-foreground mt-1">Slide {k + 1}</div>
+                  <div className="text-lg text-muted-foreground mt-1">Slide {k + 1}</div>
                 </div>
               </button>
             ))}

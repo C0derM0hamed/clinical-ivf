@@ -32,7 +32,7 @@ export const slides: Slide[] = [
       <section className="relative w-full max-w-7xl mx-auto px-6 md:px-12 py-12 animate-slide-in">
         <div className="absolute inset-0 grid-bg pointer-events-none" />
         <div className="relative flex flex-col items-center text-center gap-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-base uppercase tracking-[0.25em] text-muted-foreground">
             <Sparkles className="size-3.5 text-primary" /> AI Clinical Decision Support
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[0.95]">
@@ -45,18 +45,18 @@ export const slides: Slide[] = [
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-2">
             {["Machine Learning", "RAG Architecture", "Vector Search", "Explainable AI"].map((t) => (
-              <span key={t} className="glass px-4 py-2 rounded-full text-sm text-foreground/90">{t}</span>
+              <span key={t} className="glass px-4 py-2 rounded-full text-lg text-foreground/90">{t}</span>
             ))}
           </div>
           <div className="mt-10 w-full max-w-3xl glass-strong rounded-2xl p-6">
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-4">Presented By</div>
+            <div className="text-base uppercase tracking-[0.2em] text-muted-foreground mb-4">Presented By</div>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {team.map((n) => (
-                <div key={n} className="text-foreground/90 text-sm md:text-base font-medium">{n}</div>
+                <div key={n} className="text-foreground/90 text-lg md:text-lg font-medium">{n}</div>
               ))}
             </div>
           </div>
-          <div className="text-xs text-muted-foreground tracking-widest mt-4">
+          <div className="text-base text-muted-foreground tracking-widest mt-4">
             {String(i + 1).padStart(2, "0")} / {String(t).padStart(2, "0")}
           </div>
         </div>
@@ -69,32 +69,32 @@ export const slides: Slide[] = [
     render: (i, t) => (
       <SlideShell index={i} total={t} eyebrow="Strategic Medical Partnership"
         title={<>Built in partnership with <span className="text-gradient">leading IVF expertise</span></>}>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="grid md:grid-cols-[1fr_1.2fr] gap-10 items-center">
           <GlassCard className="p-4 md:p-5">
             <div className="relative rounded-xl overflow-hidden glow-ring">
               <img src={drMahmoud} alt="Dr. Mahmoud Abdelaleem" className="w-full h-auto block" />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5">
-                <div className="text-xs uppercase tracking-[0.2em] text-primary mb-1">Strategic Medical Partner</div>
+                <div className="text-base uppercase tracking-[0.2em] text-primary mb-1">Strategic Medical Partner</div>
                 <div className="text-2xl font-semibold">Dr. Mahmoud Abdelaleem</div>
-                <div className="text-sm text-muted-foreground">Senior IVF Consultant</div>
+                <div className="text-lg text-muted-foreground">Senior IVF Consultant</div>
               </div>
             </div>
           </GlassCard>
-          <div className="space-y-4">
+          <div className="space-y-6">
             {[
               { icon: Stethoscope, t: "Senior IVF Consultant", d: "Decades of clinical fertility expertise" },
               { icon: Workflow, t: "Clinical Workflow Advisor", d: "Real IVF treatment workflow design" },
               { icon: Database, t: "Real-World Data Provider", d: "Authentic IVF datasets & outcomes" },
               { icon: ShieldCheck, t: "Clinical Validation", d: "Verifies AI predictions in practice" },
             ].map((x, k) => (
-              <GlassCard key={x.t} delay={k} className="p-5 flex items-start gap-4">
-                <div className="size-11 rounded-xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
-                  <x.icon className="size-5" />
+              <GlassCard key={x.t} delay={k} className="p-6 md:p-8 flex items-center gap-5">
+                <div className="size-14 rounded-2xl bg-primary/15 text-primary flex items-center justify-center shrink-0">
+                  <x.icon className="size-6" />
                 </div>
                 <div>
-                  <div className="font-semibold text-foreground">{x.t}</div>
-                  <div className="text-sm text-muted-foreground">{x.d}</div>
+                  <div className="text-lg font-semibold text-foreground mb-1">{x.t}</div>
+                  <div className="text-lg text-muted-foreground">{x.d}</div>
                 </div>
               </GlassCard>
             ))}
@@ -121,7 +121,7 @@ export const slides: Slide[] = [
             <GlassCard key={x.t} delay={k}>
               <x.icon className="size-6 text-primary mb-4" />
               <div className="font-semibold text-lg text-foreground mb-1">{x.t}</div>
-              <div className="text-sm text-muted-foreground">{x.d}</div>
+              <div className="text-lg text-muted-foreground">{x.d}</div>
             </GlassCard>
           ))}
         </div>
@@ -148,8 +148,8 @@ export const slides: Slide[] = [
           ))}
         </div>
         <GlassCard delay={4}>
-          <div className="text-xs uppercase tracking-[0.2em] text-primary mb-3">Why this matters</div>
-          <div className="grid md:grid-cols-3 gap-4 text-sm">
+          <div className="text-base uppercase tracking-[0.2em] text-primary mb-3">Why this matters</div>
+          <div className="grid md:grid-cols-3 gap-4 text-lg">
             <div className="flex items-center gap-2"><Globe2 className="size-4 text-primary" /> Global IVF demand rising</div>
             <div className="flex items-center gap-2"><Cpu className="size-4 text-primary" /> Clinics digitizing fast</div>
             <div className="flex items-center gap-2"><Rocket className="size-4 text-primary" /> Healthcare AI accelerating</div>
@@ -166,7 +166,7 @@ export const slides: Slide[] = [
         title={<>Clinics operate without <span className="text-gradient">predictive intelligence</span></>}>
         <div className="grid md:grid-cols-2 gap-6">
           <GlassCard>
-            <div className="text-xs uppercase tracking-[0.2em] text-destructive mb-4">Current Problems</div>
+            <div className="text-base uppercase tracking-[0.2em] text-destructive mb-4">Current Problems</div>
             <ul className="space-y-3">
               {["No accurate AI prediction systems","Manual interpretation of IVF history","Fragmented patient records","Difficult treatment optimization","Limited use of historical patterns"].map((x) => (
                 <li key={x} className="flex items-start gap-3 text-foreground/90">
@@ -176,7 +176,7 @@ export const slides: Slide[] = [
             </ul>
           </GlassCard>
           <GlassCard delay={1}>
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">Business Impact</div>
+            <div className="text-base uppercase tracking-[0.2em] text-accent mb-4">Business Impact</div>
             <div className="grid grid-cols-2 gap-4">
               {[
                 { v: "↓", l: "Failed IVF cycles" },
@@ -186,7 +186,7 @@ export const slides: Slide[] = [
               ].map((x) => (
                 <div key={x.l} className="rounded-xl bg-muted/40 p-4">
                   <div className="text-2xl font-semibold text-accent mb-1">{x.v}</div>
-                  <div className="text-sm text-muted-foreground">{x.l}</div>
+                  <div className="text-lg text-muted-foreground">{x.l}</div>
                 </div>
               ))}
             </div>
@@ -218,15 +218,15 @@ export const slides: Slide[] = [
           </div>
           <div className="md:col-span-2">
             <GlassCard delay={2} className="h-full">
-              <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">Core Technologies</div>
+              <div className="text-base uppercase tracking-[0.2em] text-primary mb-4">Core Technologies</div>
               <div className="flex flex-wrap gap-2">
                 {["Machine Learning","RAG","GPT Reasoning","Vector Search","Embeddings","pgvector"].map(x => (
-                  <span key={x} className="px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary">{x}</span>
+                  <span key={x} className="px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-lg text-primary">{x}</span>
                 ))}
               </div>
               <div className="mt-6 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 p-5">
                 <Sparkles className="size-6 text-primary mb-2" />
-                <div className="text-sm text-foreground/90">A unified AI layer for fertility medicine — built for real clinical workflows.</div>
+                <div className="text-lg text-foreground/90">A unified AI layer for fertility medicine — built for real clinical workflows.</div>
               </div>
             </GlassCard>
           </div>
@@ -251,17 +251,17 @@ export const slides: Slide[] = [
           <div className="grid md:grid-cols-5 gap-4 mb-6">
             {steps.map((s, k) => (
               <GlassCard key={s.n} delay={k} className="relative">
-                <div className="text-xs text-primary font-mono mb-3">{s.n}</div>
+                <div className="text-base text-primary font-mono mb-3">{s.n}</div>
                 <s.icon className="size-6 text-primary mb-3" />
-                <div className="text-sm font-medium leading-snug">{s.t}</div>
+                <div className="text-lg font-medium leading-snug">{s.t}</div>
               </GlassCard>
             ))}
           </div>
           <GlassCard delay={5}>
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">Final Output</div>
+            <div className="text-base uppercase tracking-[0.2em] text-accent mb-4">Final Output</div>
             <div className="grid md:grid-cols-4 gap-3">
               {["Success probability","Risk indicators","Similar cases","Clinical insights"].map(x => (
-                <div key={x} className="rounded-xl bg-accent/10 border border-accent/20 p-4 text-sm font-medium text-foreground/90 flex items-center gap-2">
+                <div key={x} className="rounded-xl bg-accent/10 border border-accent/20 p-4 text-lg font-medium text-foreground/90 flex items-center gap-2">
                   <CheckCircle2 className="size-4 text-accent" />{x}
                 </div>
               ))}
@@ -282,14 +282,14 @@ export const slides: Slide[] = [
             {[{v:"927",l:"IVF cycles"},{v:"27",l:"Medical features"},{v:"100%",l:"Real clinical data"}].map((x,k)=>(
               <GlassCard key={x.l} delay={k} className="p-6">
                 <div className="text-4xl font-semibold text-gradient">{x.v}</div>
-                <div className="text-sm text-muted-foreground mt-1">{x.l}</div>
+                <div className="text-lg text-muted-foreground mt-1">{x.l}</div>
               </GlassCard>
             ))}
             <GlassCard delay={3}>
-              <div className="text-xs uppercase tracking-[0.2em] text-primary mb-3">Key features</div>
+              <div className="text-base uppercase tracking-[0.2em] text-primary mb-3">Key features</div>
               <div className="flex flex-wrap gap-1.5">
                 {["Wife age","Husband age","BMI","AMH","AFC","Fertilization rate","ET day","Fresh/Frozen"].map(x=>(
-                  <span key={x} className="text-xs px-2.5 py-1 rounded-full bg-muted/50 border border-border text-foreground/80">{x}</span>
+                  <span key={x} className="text-base px-2.5 py-1 rounded-full bg-muted/50 border border-border text-foreground/80">{x}</span>
                 ))}
               </div>
             </GlassCard>
@@ -315,7 +315,7 @@ export const slides: Slide[] = [
           ].map((x,k)=>(
             <GlassCard key={x} delay={k} className="p-5 flex items-start gap-3">
               <CheckCircle2 className="size-5 text-primary shrink-0 mt-0.5" />
-              <span className="text-sm">{x}</span>
+              <span className="text-lg">{x}</span>
             </GlassCard>
           ))}
         </div>
@@ -340,11 +340,11 @@ export const slides: Slide[] = [
           ].map((x,k)=>(
             <GlassCard key={x} delay={k} className="p-5 flex items-start gap-3">
               <FlaskConical className="size-5 text-accent shrink-0 mt-0.5" />
-              <span className="text-sm">{x}</span>
+              <span className="text-lg">{x}</span>
             </GlassCard>
           ))}
         </div>
-        <div className="grid gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
           <ChartFrame src={chartOvarian} caption="Fig 4-5 · AMH distribution, outcome boxplots, success by AMH level, and AFC category breakdown." />
           <ChartFrame src={chartAmhAge} caption="Fig 10 · Scatter plot of AMH vs wife age, split by outcome with trend lines." />
         </div>
@@ -365,11 +365,11 @@ export const slides: Slide[] = [
           ].map((x,k)=>(
             <GlassCard key={x.t} delay={k} className="p-5 flex items-start gap-3">
               <x.i className="size-5 text-primary shrink-0 mt-0.5" />
-              <span className="text-sm font-medium">{x.t}</span>
+              <span className="text-lg font-medium">{x.t}</span>
             </GlassCard>
           ))}
         </div>
-        <div className="grid gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
           <ChartFrame src={chartFert} caption="Fig 6 · Injection and fertilization counts, fertilization rate by outcome, and embryos transferred." />
           <ChartFrame src={chartTransfer} caption="Fig 7 · Success rate and cycle count by embryo transfer day. Fig 5 · Live birth rates: fresh vs frozen." />
         </div>
@@ -413,7 +413,7 @@ export const slides: Slide[] = [
         <div className="grid md:grid-cols-12 gap-5">
           <div className="md:col-span-7 space-y-4">
             <GlassCard>
-              <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">Hierarchical Label Engineering</div>
+              <div className="text-base uppercase tracking-[0.2em] text-primary mb-4">Hierarchical Label Engineering</div>
               {[
                 { n:"1", t:"Live Birth", d:"Strongest signal", cls:"bg-primary/15 text-primary" },
                 { n:"2", t:"Clinical Pregnancy", d:"Secondary signal", cls:"bg-accent/15 text-accent" },
@@ -423,14 +423,14 @@ export const slides: Slide[] = [
                   <div className={`size-9 rounded-full flex items-center justify-center font-semibold ${x.cls}`}>{x.n}</div>
                   <div className="flex-1">
                     <div className="font-semibold">{x.t}</div>
-                    <div className="text-xs text-muted-foreground">{x.d}</div>
+                    <div className="text-base text-muted-foreground">{x.d}</div>
                   </div>
                 </div>
               ))}
             </GlassCard>
             <GlassCard delay={1} className="bg-gradient-to-br from-destructive/10 to-transparent">
-              <div className="text-xs uppercase tracking-[0.2em] text-destructive mb-2">Important rule</div>
-              <p className="text-sm">Pregnancy complications were used <strong>only</strong> for inferred labeling — never as model input or training predictors. This prevents data leakage and unrealistic accuracy.</p>
+              <div className="text-base uppercase tracking-[0.2em] text-destructive mb-2">Important rule</div>
+              <p className="text-lg">Pregnancy complications were used <strong>only</strong> for inferred labeling — never as model input or training predictors. This prevents data leakage and unrealistic accuracy.</p>
             </GlassCard>
           </div>
           <div className="md:col-span-5">
@@ -461,7 +461,7 @@ export const slides: Slide[] = [
                 <div className="font-semibold text-lg mb-3">{s.t}</div>
                 <div className="space-y-1.5">
                   {s.items.map(it => (
-                    <div key={it} className="text-sm text-foreground/80 flex items-center gap-2">
+                    <div key={it} className="text-lg text-foreground/80 flex items-center gap-2">
                       <span className="size-1 rounded-full bg-primary/60" />{it}
                     </div>
                   ))}
@@ -484,7 +484,7 @@ export const slides: Slide[] = [
           title={<>System <span className="text-gradient">architecture</span></>}>
           <div className="grid md:grid-cols-12 gap-5">
             <GlassCard className="md:col-span-7">
-              <div className="text-xs uppercase tracking-[0.2em] text-primary mb-6">Workflow Pipeline</div>
+              <div className="text-base uppercase tracking-[0.2em] text-primary mb-6">Workflow Pipeline</div>
               <div className="space-y-3">
                 {flow.map((step, k) => {
                   const Icon = icons[k];
@@ -503,7 +503,7 @@ export const slides: Slide[] = [
               </div>
             </GlassCard>
             <div className="md:col-span-5 space-y-3">
-              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-2">Main Components</div>
+              <div className="text-base uppercase tracking-[0.2em] text-accent mb-2">Main Components</div>
               {[
                 { i: LineChart, t: "Frontend Dashboard" },
                 { i: Server, t: "Backend API" },
@@ -513,7 +513,7 @@ export const slides: Slide[] = [
                 { i: Network, t: "Retrieval System" },
               ].map((x, k) => (
                 <GlassCard key={x.t} delay={k} className="p-3 flex items-center gap-3">
-                  <x.i className="size-5 text-accent" /><span className="text-sm font-medium">{x.t}</span>
+                  <x.i className="size-5 text-accent" /><span className="text-lg font-medium">{x.t}</span>
                 </GlassCard>
               ))}
             </div>
@@ -538,37 +538,37 @@ export const slides: Slide[] = [
               "Analyze contributing factors",
             ].map((x, k) => (
               <GlassCard key={x} delay={k} className="p-4 flex items-center gap-4">
-                <div className="size-8 rounded-full bg-primary/15 text-primary flex items-center justify-center text-sm font-semibold">{k+1}</div>
+                <div className="size-8 rounded-full bg-primary/15 text-primary flex items-center justify-center text-lg font-semibold">{k+1}</div>
                 <div className="font-medium">{x}</div>
               </GlassCard>
             ))}
             <GlassCard delay={6} className="bg-gradient-to-br from-accent/15 to-primary/10">
               <Sparkles className="size-5 text-accent mb-2" />
               <div className="font-semibold">Goal</div>
-              <p className="text-sm text-muted-foreground">Support physicians with intelligent, explainable decision-making tools.</p>
+              <p className="text-lg text-muted-foreground">Support physicians with intelligent, explainable decision-making tools.</p>
             </GlassCard>
           </div>
           <GlassCard delay={2} className="p-5">
             <div className="rounded-xl bg-background/60 border border-border p-5 space-y-4">
               <div className="flex items-center justify-between">
-                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Patient · #4291</div>
+                <div className="text-base uppercase tracking-[0.2em] text-muted-foreground">Patient · #4291</div>
                 <div className="size-2 rounded-full bg-emerald-400 animate-pulse-glow" />
               </div>
               <div className="grid grid-cols-3 gap-3 text-center">
                 {[{l:"Age",v:"31"},{l:"BMI",v:"24.8"},{l:"AMH",v:"3.4"}].map(x=>(
                   <div key={x.l} className="rounded-lg bg-muted/50 p-3">
                     <div className="text-2xl font-semibold text-primary">{x.v}</div>
-                    <div className="text-xs text-muted-foreground">{x.l}</div>
+                    <div className="text-base text-muted-foreground">{x.l}</div>
                   </div>
                 ))}
               </div>
               <div className="rounded-lg bg-gradient-to-br from-primary/20 to-accent/15 p-5 text-center">
-                <div className="text-xs uppercase tracking-[0.2em] text-primary mb-1">Predicted Success</div>
+                <div className="text-base uppercase tracking-[0.2em] text-primary mb-1">Predicted Success</div>
                 <div className="text-5xl font-semibold text-gradient">74%</div>
               </div>
               <div className="space-y-2">
                 {["Younger maternal age","High AMH level","Frozen transfer"].map(x=>(
-                  <div key={x} className="flex items-center gap-2 text-sm"><CheckCircle2 className="size-4 text-emerald-400" />{x}</div>
+                  <div key={x} className="flex items-center gap-2 text-lg"><CheckCircle2 className="size-4 text-emerald-400" />{x}</div>
                 ))}
               </div>
             </div>
@@ -585,7 +585,7 @@ export const slides: Slide[] = [
         title={<>Example <span className="text-gradient">prediction output</span></>}>
         <div className="grid md:grid-cols-12 gap-5">
           <GlassCard className="md:col-span-5 flex flex-col items-center justify-center text-center p-10 bg-gradient-to-br from-primary/15 to-accent/10">
-            <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">Success Probability</div>
+            <div className="text-base uppercase tracking-[0.2em] text-primary mb-4">Success Probability</div>
             <div className="relative size-48 flex items-center justify-center mb-4">
               <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90">
                 <circle cx="50" cy="50" r="44" fill="none" stroke="oklch(1 0 0 / 0.08)" strokeWidth="6" />
@@ -594,32 +594,32 @@ export const slides: Slide[] = [
               </svg>
               <div className="text-6xl font-semibold text-gradient">74%</div>
             </div>
-            <div className="text-sm text-muted-foreground">High-confidence prediction</div>
+            <div className="text-lg text-muted-foreground">High-confidence prediction</div>
           </GlassCard>
           <div className="md:col-span-7 grid grid-cols-1 gap-4">
             <GlassCard delay={1}>
-              <div className="text-xs uppercase tracking-[0.2em] text-emerald-400 mb-3">Positive Factors</div>
+              <div className="text-base uppercase tracking-[0.2em] text-emerald-400 mb-3">Positive Factors</div>
               <div className="grid grid-cols-2 gap-2">
                 {["Younger maternal age","High AMH level","Frozen transfer","Strong fertilization rate"].map(x=>(
-                  <div key={x} className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-3 text-sm flex items-center gap-2">
+                  <div key={x} className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-3 text-lg flex items-center gap-2">
                     <CheckCircle2 className="size-4 text-emerald-400 shrink-0" />{x}
                   </div>
                 ))}
               </div>
             </GlassCard>
             <GlassCard delay={2}>
-              <div className="text-xs uppercase tracking-[0.2em] text-destructive mb-3">Risk Factors</div>
+              <div className="text-base uppercase tracking-[0.2em] text-destructive mb-3">Risk Factors</div>
               <div className="grid grid-cols-2 gap-2">
                 {["Elevated BMI","Lower embryo quality"].map(x=>(
-                  <div key={x} className="rounded-lg bg-destructive/10 border border-destructive/20 p-3 text-sm flex items-center gap-2">
+                  <div key={x} className="rounded-lg bg-destructive/10 border border-destructive/20 p-3 text-lg flex items-center gap-2">
                     <AlertTriangle className="size-4 text-destructive shrink-0" />{x}
                   </div>
                 ))}
               </div>
             </GlassCard>
             <GlassCard delay={3}>
-              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-2">AI Explanation</div>
-              <p className="text-sm text-foreground/90">The prediction is supported by similarity to previous successful IVF cases with comparable clinical characteristics.</p>
+              <div className="text-base uppercase tracking-[0.2em] text-accent mb-2">AI Explanation</div>
+              <p className="text-lg text-foreground/90">The prediction is supported by similarity to previous successful IVF cases with comparable clinical characteristics.</p>
             </GlassCard>
           </div>
         </div>
@@ -642,20 +642,20 @@ export const slides: Slide[] = [
             { i: Sparkles, t: "Modern AI SaaS architecture" },
           ].map((x, k) => (
             <GlassCard key={x.t} delay={k} className="p-5 flex items-center gap-3">
-              <x.i className="size-5 text-primary" /><span className="text-sm font-medium">{x.t}</span>
+              <x.i className="size-5 text-primary" /><span className="text-lg font-medium">{x.t}</span>
             </GlassCard>
           ))}
         </div>
         <div className="grid md:grid-cols-2 gap-5">
           <GlassCard delay={6}>
-            <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">Traditional Systems</div>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <div className="text-base uppercase tracking-[0.2em] text-muted-foreground mb-3">Traditional Systems</div>
+            <ul className="space-y-2 text-lg text-muted-foreground">
               <li>· Static calculators</li><li>· Rule-based logic</li><li>· Limited personalization</li>
             </ul>
           </GlassCard>
           <GlassCard delay={7} className="bg-gradient-to-br from-primary/15 to-accent/10">
-            <div className="text-xs uppercase tracking-[0.2em] text-primary mb-3">Our Platform</div>
-            <ul className="space-y-2 text-sm text-foreground">
+            <div className="text-base uppercase tracking-[0.2em] text-primary mb-3">Our Platform</div>
+            <ul className="space-y-2 text-lg text-foreground">
               <li className="flex items-center gap-2"><CheckCircle2 className="size-4 text-primary" />Dynamic AI reasoning</li>
               <li className="flex items-center gap-2"><CheckCircle2 className="size-4 text-primary" />Context-aware predictions</li>
               <li className="flex items-center gap-2"><CheckCircle2 className="size-4 text-primary" />Explainable outputs</li>
@@ -686,9 +686,9 @@ export const slides: Slide[] = [
                 <div className="font-semibold text-lg mb-1">{p.n}</div>
                 <div className="flex items-baseline gap-1 mb-4">
                   <span className="text-3xl font-semibold text-gradient">{p.p}</span>
-                  <span className="text-xs text-muted-foreground">{p.u}</span>
+                  <span className="text-base text-muted-foreground">{p.u}</span>
                 </div>
-                <ul className="space-y-2 text-sm">
+                <ul className="space-y-2 text-lg">
                   {p.f.map(x=>(
                     <li key={x} className="flex items-start gap-2"><CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />{x}</li>
                   ))}
@@ -697,8 +697,8 @@ export const slides: Slide[] = [
             ))}
           </div>
           <GlassCard delay={5}>
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-3">Additional Revenue Streams</div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+            <div className="text-base uppercase tracking-[0.2em] text-accent mb-3">Additional Revenue Streams</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-lg">
               {["AI analytics reports","API integrations","White-label solutions","Enterprise deployment"].map(x=>(
                 <div key={x} className="px-3 py-2 rounded-lg bg-accent/10 border border-accent/20">{x}</div>
               ))}
@@ -724,7 +724,7 @@ export const slides: Slide[] = [
           title={<>Lean <span className="text-gradient">AI SaaS infrastructure</span></>}>
           <div className="grid md:grid-cols-12 gap-5">
             <GlassCard className="md:col-span-7">
-              <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">Estimated Monthly Cost</div>
+              <div className="text-base uppercase tracking-[0.2em] text-primary mb-4">Estimated Monthly Cost</div>
               <div className="divide-y divide-border">
                 {items.map(x=>(
                   <div key={x.l} className="flex items-center justify-between py-3">
@@ -736,13 +736,13 @@ export const slides: Slide[] = [
             </GlassCard>
             <div className="md:col-span-5 space-y-4">
               <GlassCard className="bg-gradient-to-br from-primary/20 to-accent/10 text-center p-8">
-                <div className="text-xs uppercase tracking-[0.2em] text-primary mb-2">Total Estimate</div>
+                <div className="text-base uppercase tracking-[0.2em] text-primary mb-2">Total Estimate</div>
                 <div className="text-5xl font-semibold text-gradient">$120–$280</div>
-                <div className="text-sm text-muted-foreground mt-1">per month</div>
+                <div className="text-lg text-muted-foreground mt-1">per month</div>
               </GlassCard>
               <GlassCard delay={1}>
-                <div className="text-xs uppercase tracking-[0.2em] text-accent mb-3">Why Cost is Low</div>
-                <ul className="text-sm space-y-2">
+                <div className="text-base uppercase tracking-[0.2em] text-accent mb-3">Why Cost is Low</div>
+                <ul className="text-lg space-y-2">
                   {["Lightweight SaaS architecture","API-based AI inference","No expensive GPU servers","Efficient vector DB"].map(x=>(
                     <li key={x} className="flex items-start gap-2"><Zap className="size-4 text-accent mt-0.5" />{x}</li>
                   ))}
@@ -762,7 +762,7 @@ export const slides: Slide[] = [
         title={<>Future <span className="text-gradient">vision</span></>}>
         <div className="grid md:grid-cols-2 gap-5">
           <GlassCard>
-            <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">Future Features</div>
+            <div className="text-base uppercase tracking-[0.2em] text-primary mb-4">Future Features</div>
             <div className="space-y-3">
               {[
                 { i: Microscope, t: "Embryo image analysis" },
@@ -779,7 +779,7 @@ export const slides: Slide[] = [
           </GlassCard>
           <div className="space-y-4">
             <GlassCard delay={1}>
-              <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">Expansion Plan</div>
+              <div className="text-base uppercase tracking-[0.2em] text-accent mb-4">Expansion Plan</div>
               <div className="space-y-3">
                 {[
                   { i: Stethoscope, t: "Local fertility clinics", l: "Phase 1" },
@@ -789,13 +789,13 @@ export const slides: Slide[] = [
                   <div key={x.t} className="flex items-center gap-3 p-3 rounded-xl bg-accent/10">
                     <x.i className="size-5 text-accent" />
                     <div className="flex-1"><div className="font-medium">{x.t}</div></div>
-                    <span className="text-xs text-accent font-mono">{x.l}</span>
+                    <span className="text-base text-accent font-mono">{x.l}</span>
                   </div>
                 ))}
               </div>
             </GlassCard>
             <GlassCard delay={2} className="bg-gradient-to-br from-primary/20 to-accent/15 p-8">
-              <div className="text-xs uppercase tracking-[0.2em] text-primary mb-3">Long-term Goal</div>
+              <div className="text-base uppercase tracking-[0.2em] text-primary mb-3">Long-term Goal</div>
               <p className="text-xl font-semibold leading-snug">Become the intelligence infrastructure for fertility medicine.</p>
             </GlassCard>
           </div>
@@ -811,7 +811,7 @@ export const slides: Slide[] = [
         title={<>Why this startup has <span className="text-gradient">potential</span></>}>
         <div className="grid md:grid-cols-2 gap-5 mb-6">
           <GlassCard>
-            <div className="text-xs uppercase tracking-[0.2em] text-primary mb-4">Strong Market Signals</div>
+            <div className="text-base uppercase tracking-[0.2em] text-primary mb-4">Strong Market Signals</div>
             <ul className="space-y-3">
               {[
                 { i: TrendingUp, t: "Rapidly growing fertility industry" },
@@ -823,7 +823,7 @@ export const slides: Slide[] = [
             </ul>
           </GlassCard>
           <GlassCard delay={1}>
-            <div className="text-xs uppercase tracking-[0.2em] text-accent mb-4">Technical Advantage</div>
+            <div className="text-base uppercase tracking-[0.2em] text-accent mb-4">Technical Advantage</div>
             <ul className="space-y-3">
               {[
                 { i: Network, t: "RAG-powered reasoning" },
@@ -852,7 +852,7 @@ export const slides: Slide[] = [
       <section className="relative w-full max-w-7xl mx-auto px-6 md:px-12 py-16 animate-slide-in">
         <div className="absolute inset-0 grid-bg pointer-events-none" />
         <div className="relative flex flex-col items-center text-center gap-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs uppercase tracking-[0.25em] text-muted-foreground">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-base uppercase tracking-[0.25em] text-muted-foreground">
             <Sparkles className="size-3.5 text-primary" /> AI-Powered IVF Intelligence Platform
           </div>
           <h1 className="text-7xl md:text-9xl font-semibold tracking-tight">
@@ -860,11 +860,11 @@ export const slides: Slide[] = [
           </h1>
           <p className="text-2xl text-muted-foreground">Questions?</p>
           <GlassCard className="mt-6 max-w-md">
-            <div className="text-xs uppercase tracking-[0.2em] text-primary mb-2">Strategic Medical Partner</div>
+            <div className="text-base uppercase tracking-[0.2em] text-primary mb-2">Strategic Medical Partner</div>
             <div className="text-xl font-semibold">Dr. Mahmoud Abdelaleem</div>
-            <div className="text-sm text-muted-foreground">Senior IVF Consultant</div>
+            <div className="text-lg text-muted-foreground">Senior IVF Consultant</div>
           </GlassCard>
-          <div className="text-xs text-muted-foreground tracking-widest mt-4">
+          <div className="text-base text-muted-foreground tracking-widest mt-4">
             {String(i + 1).padStart(2, "0")} / {String(t).padStart(2, "0")}
           </div>
         </div>

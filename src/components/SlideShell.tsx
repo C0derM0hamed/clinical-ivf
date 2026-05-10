@@ -24,33 +24,35 @@ export function SlideShell({
     <section
       key={index}
       className={cn(
-        "relative w-full max-w-[1400px] mx-auto px-6 md:px-10 py-6 md:py-8 animate-slide-in",
+        "relative w-full max-w-[1600px] mx-auto px-8 md:px-16 py-8 md:py-12 animate-slide-in",
         className,
       )}
     >
+      <div className="absolute -top-20 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      
       <header
         className={cn(
-          "flex flex-col gap-2 mb-5 md:mb-6",
+          "flex flex-col gap-4 mb-10 md:mb-16 relative z-10",
           align === "center" && "items-center text-center",
         )}
       >
-        <div className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-          <span className="inline-flex items-center gap-2">
-            <span className="size-1.5 rounded-full bg-primary animate-pulse-glow" />
+        <div className="flex items-center gap-4 text-base md:text-lg font-bold uppercase tracking-[0.25em]">
+          <span className="inline-flex items-center gap-3 text-muted-foreground">
+            <span className="size-2.5 rounded-full bg-primary animate-pulse-glow shadow-[0_0_12px_var(--primary)]" />
             {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
           </span>
           {eyebrow && (
             <>
-              <span className="opacity-30">·</span>
-              <span>{eyebrow}</span>
+              <span className="opacity-30 text-border">|</span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{eyebrow}</span>
             </>
           )}
         </div>
-        <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground leading-[1.05]">
+        <h2 className="text-4xl md:text-6xl lg:text-[4.5rem] font-extrabold tracking-tighter text-foreground leading-[1.1] drop-shadow-sm">
           {title}
         </h2>
       </header>
-      <div className="animate-fade-up" style={{ animationDelay: "0.15s" }}>
+      <div className="animate-fade-up relative z-10" style={{ animationDelay: "0.15s" }}>
         {children}
       </div>
     </section>
@@ -67,7 +69,7 @@ export function GlassCard({ children, className, delay = 0 }: CardProps) {
   return (
     <div
       className={cn(
-        "glass rounded-2xl p-4 md:p-5 transition-all hover:border-primary/30 hover:shadow-[0_20px_60px_-20px_oklch(0.78_0.16_200/0.4)] animate-fade-up",
+        "glass rounded-2xl p-6 md:p-8 transition-all hover:border-primary/30 hover:shadow-[0_20px_60px_-20px_oklch(0.78_0.16_200/0.4)] animate-fade-up",
         className,
       )}
       style={{ animationDelay: `${0.15 + delay * 0.06}s` }}
@@ -132,21 +134,46 @@ export function ChartFrame({
   caption?: string;
   className?: string;
 }) {
+  const [zoomed, setZoomed] = useState(false);
+
   return (
-    <figure
-      className={cn(
-        "glass-strong rounded-2xl p-3 md:p-4 overflow-hidden glow-ring animate-fade-up",
-        className,
+    <>
+      <figure
+        data-no-advance
+        onClick={() => setZoomed(true)}
+        className={cn(
+          "glass-strong rounded-2xl p-4 md:p-6 overflow-hidden glow-ring animate-fade-up cursor-zoom-in group transition-all hover:border-primary/40",
+          className,
+        )}
+      >
+        <div className="rounded-xl overflow-hidden bg-white/95 relative">
+          <div className="absolute inset-0 bg-transparent group-hover:bg-black/5 transition-colors z-10 pointer-events-none" />
+          <img src={src} alt={caption ?? "Analytics chart"} className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.03]" />
+        </div>
+        {caption && (
+          <figcaption className="text-lg text-muted-foreground mt-4 px-2 italic">
+            {caption}
+          </figcaption>
+        )}
+      </figure>
+
+      {zoomed && (
+        <div 
+          data-no-advance
+          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-xl flex items-center justify-center p-2 md:p-6 cursor-zoom-out animate-fade-in"
+          onClick={() => setZoomed(false)}
+        >
+          <div 
+            className="relative w-full h-full flex items-center justify-center animate-zoom-cinematic"
+          >
+            <img 
+              src={src} 
+              alt={caption ?? "Expanded chart"} 
+              className="w-full h-full object-contain block drop-shadow-2xl rounded-xl"
+            />
+          </div>
+        </div>
       )}
-    >
-      <div className="rounded-xl overflow-hidden bg-white/95">
-        <img src={src} alt={caption ?? "Analytics chart"} className="w-full h-auto block" />
-      </div>
-      {caption && (
-        <figcaption className="text-xs text-muted-foreground mt-3 px-2 italic">
-          {caption}
-        </figcaption>
-      )}
-    </figure>
+    </>
   );
 }
