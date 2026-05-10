@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, LayoutGrid, X } from "lucide-react";
 import { slides } from "@/components/slides/slidesData";
+import { AutoFit } from "@/components/SlideShell";
 import { cn } from "@/lib/utils";
 
 export function SlideDeck() {
@@ -14,8 +15,16 @@ export function SlideDeck() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") { e.preventDefault(); go(i + 1); }
+      if (
+        e.key === "ArrowRight" ||
+        e.key === " " ||
+        e.key === "Spacebar" ||
+        e.key === "Enter" ||
+        e.key === "PageDown" ||
+        e.key === "ArrowDown"
+      ) { e.preventDefault(); go(i + 1); }
       else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); go(i - 1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); go(i - 1); }
       else if (e.key === "Home") go(0);
       else if (e.key === "End") go(total - 1);
       else if (e.key.toLowerCase() === "g") setGrid((g) => !g);
@@ -25,14 +34,10 @@ export function SlideDeck() {
     return () => window.removeEventListener("keydown", onKey);
   }, [i, go, total]);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [i]);
-
   return (
-    <div className="min-h-screen relative overflow-x-hidden">
+    <div className="h-screen w-screen relative overflow-hidden">
       {/* Top bar */}
-      <header className="fixed top-0 left-0 right-0 z-40 px-4 md:px-6 py-3 flex items-center justify-between glass-strong border-b border-border/50">
+      <header className="fixed top-0 left-0 right-0 z-40 px-4 md:px-6 py-2.5 flex items-center justify-between glass-strong border-b border-border/50">
         <div className="flex items-center gap-3">
           <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-sm">IV</div>
           <div className="hidden sm:block">
@@ -51,17 +56,24 @@ export function SlideDeck() {
       </header>
 
       {/* Progress */}
-      <div className="fixed top-[52px] left-0 right-0 z-30 h-0.5 bg-border/30">
+      <div className="fixed top-[48px] left-0 right-0 z-30 h-0.5 bg-border/30">
         <div className="h-full bg-gradient-to-r from-primary to-accent transition-all duration-500" style={{ width: `${((i + 1) / total) * 100}%` }} />
       </div>
 
-      {/* Slide */}
-      <main className="pt-24 pb-32 min-h-screen flex items-start md:items-center">
-        {slides[i].render(i, total)}
+      {/* Slide — fills viewport, click to advance */}
+      <main
+        onClick={(e) => {
+          const target = e.target as HTMLElement;
+          if (target.closest("button, a, [data-no-advance]")) return;
+          go(i + 1);
+        }}
+        className="absolute inset-0 pt-14 pb-20 cursor-pointer select-none"
+      >
+        <AutoFit key={i}>{slides[i].render(i, total)}</AutoFit>
       </main>
 
       {/* Bottom controls */}
-      <nav className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-2 glass-strong rounded-full px-2 py-2 shadow-[0_20px_60px_-20px_oklch(0_0_0/0.8)]">
+      <nav data-no-advance onClick={(e) => e.stopPropagation()} className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 flex items-center gap-2 glass-strong rounded-full px-2 py-2 shadow-[0_20px_60px_-20px_oklch(0_0_0/0.8)]">
         <button onClick={() => go(i - 1)} disabled={i === 0} aria-label="Previous"
           className="size-10 rounded-full bg-muted/40 hover:bg-primary/20 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors">
           <ChevronLeft className="size-5" />
@@ -77,7 +89,7 @@ export function SlideDeck() {
 
       {/* Grid overlay */}
       {grid && (
-        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl overflow-y-auto animate-fade-up">
+        <div data-no-advance className="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl overflow-y-auto animate-fade-up">
           <div className="sticky top-0 z-10 flex items-center justify-between px-6 py-4 glass-strong border-b border-border">
             <div className="text-sm font-semibold">All slides · {total}</div>
             <button onClick={() => setGrid(false)} aria-label="Close" className="size-9 rounded-lg glass flex items-center justify-center hover:border-primary/40">
