@@ -65,8 +65,44 @@ export function SlideDeck() {
         </div>
       </div>
 
+      
+      {/* Global Background Layer */}
+      <div 
+        className={cn(
+          "absolute inset-0 z-0 overflow-hidden pointer-events-none transition-opacity duration-1000",
+          i >= 2 ? "opacity-20" : "opacity-0"
+        )}
+      >
+        <img 
+          src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2040&auto=format&fit=crop" 
+          alt="Global Background" 
+          className="w-full h-full object-cover mix-blend-overlay" 
+        />
+        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background to-transparent" />
+      </div>
+
+      
+      {/* Global Background Layer */}
+      <div 
+        className={cn(
+          "absolute inset-0 z-0 overflow-hidden pointer-events-none transition-opacity duration-1000",
+          i >= 2 ? "opacity-20" : "opacity-0"
+        )}
+      >
+        <img 
+          src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=2040&auto=format&fit=crop" 
+          alt="Global Background" 
+          className="w-full h-full object-cover mix-blend-overlay" 
+        />
+        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background to-transparent" />
+      </div>
+
       {/* Slide — fills viewport, click to advance */}
       <main
+
+
         onClick={(e) => {
           const target = e.target as HTMLElement;
           if (target.closest("button, a, [data-no-advance]")) return;
