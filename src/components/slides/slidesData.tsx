@@ -22,7 +22,7 @@ export interface Slide {
   render: (i: number, total: number) => ReactNode;
 }
 
-const team = ["Mohamed Mostafa", "Islam Khalid", "Mohamed Sayed", "Mostafa Mohamed", "Tork Ali", "Androw Sameh"];
+const team = ["Josephine El-nahal (Team Leader)", "Mohamed Mostafa", "Islam Khalid", "Mohamed Sayed", "Mostafa Mohamed", "Tork Ali", "Androw Sameh", "kerollos Ayman"];
 
 export const slides: Slide[] = [
   {
