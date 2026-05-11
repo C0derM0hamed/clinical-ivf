@@ -16,7 +16,7 @@ export interface Slide {
   render: (i: number, total: number) => ReactNode;
 }
 
-const team = ["Josephine El-nahal (Team Leader)", "Mohamed Mostafa", "Islam Khalid", "Mohamed Sayed", "Mostafa Mohamed", "Tork Ali", "Androw Sameh", "kerollos Ayman"];
+const team = [ "Mohamed Mostafa", "Islam Khalid", "Mohamed Sayed", "Mostafa Mohamed", "Tork Ali", "Androw Sameh", "kerollos Ayman"];
 
 export const slides: Slide[] = [
   {
@@ -38,7 +38,7 @@ export const slides: Slide[] = [
             RAG architecture, and explainable AI.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-2">
-            {["Machine Learning", "RAG Architecture", "Vector Search", "Explainable AI"].map((t) => (
+            {[ "RAG Architecture", "Vector Search", "Explainable AI"].map((t) => (
               <span key={t} className="glass px-4 py-2 rounded-full text-lg text-foreground/90">{t}</span>
             ))}
           </div>
@@ -222,7 +222,7 @@ export const slides: Slide[] = [
               </div>
             </div>
             
-            <div className="mt-8 p-4 bg-background/50 rounded-xl relative z-10 border border-white/5">
+            <div className="mt-8 p-4 bg-background/50 rounded-xl relative z-10 border border-foreground/10">
               <div className="text-sm text-center text-muted-foreground">Based on Future Market Insights projections.</div>
             </div>
           </GlassCard>
@@ -503,9 +503,9 @@ export const slides: Slide[] = [
     render: (i, t) => (
       <SlideShell index={i} total={t} eyebrow="Future Vision"
         title={<>Building the Future of <span className="text-gradient">Fertility Intelligence</span></>}>
-        <div className="grid md:grid-cols-4 gap-6 mb-8">
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
           {[
-            { icon: Microscope, t: "Embryo image analysis & computer vision" },
+            
             { icon: Brain, t: "Smarter, personalized AI recommendations" },
             { icon: Network, t: "Multi-clinic distributed intelligence systems" },
             { icon: Globe2, t: "Scalable expansion across the Middle East" },
@@ -558,81 +558,6 @@ export const slides: Slide[] = [
               Join us in transforming IVF outcomes with data.
             </div>
           </GlassCard>
-        </div>
-      </SlideShell>
-    ),
-  },
-  {
-    id: "references",
-    label: "References",
-    render: (i, t) => (
-      <SlideShell index={i} total={t} eyebrow="Data Sources & References"
-        title={<>Clinical & Market <span className="text-gradient">References</span></>}>
-        <div className="flex flex-col gap-6 max-w-5xl">
-          {[
-            {
-              title: "IVF Cost in Egypt (Bedaya Hospitals)",
-              url: "https://www.bedayahospitals.com/%D8%AA%D9%83%D9%84%D9%81%D8%A9-%D8%A7%D9%84%D8%AD%D9%82%D9%86-%D8%A7%D9%84%D9%85%D8%AC%D9%87%D8%B1%D9%89-%D9%81%D9%89-%D9%85%D8%B5%D8%B1",
-            },
-            {
-              title: "Global Market Insights & AI in Fertility",
-              url: "https://www.futuremarketinsights.com/",
-            },
-            {
-              title: "Infertility Profile and Statistics in Egypt (Al-Ahram)",
-              url: "https://gate.ahram.org.eg/News/2373997.aspx",
-            }
-          ].map((ref, k) => (
-            <GlassCard key={k} delay={k} className="p-6 flex flex-col gap-2 border-l-4 border-l-primary/40 hover:border-l-primary transition-all">
-              <div className="text-xl font-medium text-foreground">{ref.title}</div>
-              <a href={ref.url} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-primary transition-colors truncate block text-lg font-mono tracking-tight underline-offset-4 hover:underline">
-                {ref.url}
-              </a>
-            </GlassCard>
-          ))}
-        </div>
-      </SlideShell>
-    ),
-  },
-    {
-    id: "references",
-    label: "References",
-    render: (i, t) => (
-      <SlideShell index={i} total={t} eyebrow="Data Sources & References"
-        title={<>References & <span className="text-gradient">External Data</span></>}>
-        <div className="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto mt-8">
-          {[
-            { 
-              title: "Future Market Insights", 
-              desc: "AI-Powered Embryo Selection Market Analysis", 
-              url: "https://www.futuremarketinsights.com/" 
-            },
-            { 
-              title: "Bedaya Hospitals", 
-              desc: "IVF Costs & Insights in Egypt (تكلفة الحقن المجهرى فى مصر)", 
-              url: "https://www.bedayahospitals.com/%D8%AA%D9%83%D9%84%D9%81%D8%A9-%D8%A7%D9%84%D8%AD%D9%82%D9%86-%D8%A7%D9%84%D9%85%D8%AC%D9%87%D8%B1%D9%89-%D9%81%D9%89-%D9%85%D8%B5%D8%B1" 
-            },
-            { 
-              title: "Al-Ahram Gate (بوابة الأهرام)", 
-              desc: "Reports on infertility rates and IVF demand in Egypt", 
-              url: "https://gate.ahram.org.eg/News/2373997.aspx" 
-            }
-          ].map((x, k) => (
-            <GlassCard key={k} delay={k} className="p-6 flex items-center justify-between group hover:border-primary/40 transition-colors">
-              <div className="flex items-start gap-4">
-                <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <LinkIcon className="size-5 text-primary" />
-                </div>
-                <div>
-                  <div className="text-xl font-semibold text-foreground/90">{x.title}</div>
-                  <div className="text-lg text-muted-foreground mt-1">{x.desc}</div>
-                  <a href={x.url} target="_blank" rel="noreferrer" className="text-sm text-primary/70 hover:text-primary mt-2 block break-all font-mono">
-                    {x.url.substring(0, 80)}{x.url.length > 80 ? "..." : ""}
-                  </a>
-                </div>
-              </div>
-            </GlassCard>
-          ))}
         </div>
       </SlideShell>
     ),
