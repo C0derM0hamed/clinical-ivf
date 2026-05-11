@@ -379,41 +379,6 @@ export const slides: Slide[] = [
     ),
   },
   {
-    id: "explainable-ai",
-    label: "Explainable AI",
-    render: (i, t) => (
-      <SlideShell index={i} total={t} eyebrow="Why Doctors Will Trust It"
-        title={<>Explainable AI Instead of <span className="text-gradient">Black Box Predictions</span></>}>
-        <div className="grid md:grid-cols-12 gap-6">
-          <div className="md:col-span-7 space-y-4">
-            {[
-              { t: "Evidence-Based", d: "Predictions are supported by real historical cases." },
-              { t: "Clear Reasoning", d: "AI explains contributing factors clearly and clinically." },
-              { t: "Comparative Analysis", d: "Doctors can review similar historic outcomes." },
-              { t: "High Trust", d: "Transparent reasoning significantly improves physician trust." },
-            ].map((x, k) => (
-              <GlassCard key={x.t} delay={k} className="p-6 flex items-start gap-4">
-                <Brain className="size-7 text-primary shrink-0 mt-1" />
-                <div>
-                  <div className="text-xl font-semibold mb-1">{x.t}</div>
-                  <div className="text-lg text-muted-foreground">{x.d}</div>
-                </div>
-              </GlassCard>
-            ))}
-          </div>
-          <div className="md:col-span-5 flex flex-col space-y-4">
-            <GlassCard delay={4} className="flex-1 p-8 border-primary/20 bg-gradient-to-br from-primary/10 to-transparent flex flex-col justify-center items-center text-center">
-              <ShieldCheck className="size-16 text-primary mb-6" />
-              <div className="text-2xl font-semibold leading-snug">
-                The platform provides intelligence, transparency, and confidence.
-              </div>
-            </GlassCard>
-          </div>
-        </div>
-      </SlideShell>
-    ),
-  },
-  {
     id: "competitor",
     label: "Competitor Comparison",
     render: (i, t) => {
@@ -491,71 +456,6 @@ export const slides: Slide[] = [
             <Activity className="size-20 text-accent mx-auto mb-8 drop-shadow-md" />
             <div className="text-3xl font-semibold leading-tight text-foreground">
               The first successful local fertility AI platform can <span className="text-gradient">lead the regional market</span>.
-            </div>
-          </GlassCard>
-        </div>
-      </SlideShell>
-    ),
-  },
-  {
-    id: "future",
-    label: "Future Vision",
-    render: (i, t) => (
-      <SlideShell index={i} total={t} eyebrow="Future Vision"
-        title={<>Building the Future of <span className="text-gradient">Fertility Intelligence</span></>}>
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          {[
-            
-            { icon: Brain, t: "Smarter, personalized AI recommendations" },
-            { icon: Network, t: "Multi-clinic distributed intelligence systems" },
-            { icon: Globe2, t: "Scalable expansion across the Middle East" },
-          ].map((x, k) => (
-            <GlassCard key={k} delay={k} className="p-6 text-center group">
-              <div className="mx-auto size-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <x.icon className="size-8 text-primary" />
-              </div>
-              <div className="text-xl font-medium">{x.t}</div>
-            </GlassCard>
-          ))}
-        </div>
-        <GlassCard delay={4} className="p-8 text-center max-w-4xl mx-auto border-primary/30 glow-ring bg-gradient-to-r from-primary/10 via-transparent to-primary/10">
-          <div className="text-3xl font-medium leading-snug">
-            The goal is to become the <span className="text-gradient font-bold">intelligence layer</span> for fertility medicine in the Arab world.
-          </div>
-        </GlassCard>
-      </SlideShell>
-    ),
-  },
-  {
-    id: "what-we-need",
-    label: "What We Need",
-    render: (i, t) => (
-      <SlideShell index={i} total={t} eyebrow="Pilot Clinics & Partnerships"
-        title={<>Pilot Clinics & <span className="text-gradient">Strategic Partnerships</span></>}>
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6">
-            <div className="text-base uppercase tracking-[0.2em] text-primary mb-2">We are looking for:</div>
-            {[
-              { icon: Users, t: "Fertility clinics willing to test the platform" },
-              { icon: Stethoscope, t: "Strong clinical partnerships" },
-              { icon: Activity, t: "Deep medical feedback & iteration" },
-              { icon: Rocket, t: "Real-world deployment opportunities" }
-            ].map((x, k) => (
-              <GlassCard key={k} delay={k} className="p-5 flex items-center gap-4">
-                <div className="size-10 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
-                  <x.icon className="size-5 text-primary" />
-                </div>
-                <div className="text-xl font-medium">{x.t}</div>
-              </GlassCard>
-            ))}
-          </div>
-          <GlassCard delay={4} className="p-10 border-primary/20 bg-gradient-to-bl from-primary/10 to-transparent flex flex-col justify-center h-full">
-            <Sparkle className="size-12 text-primary mb-6" />
-            <div className="text-3xl font-semibold leading-snug text-foreground">
-              Early partnerships will help shape the <span className="text-gradient">first localized fertility AI platform</span> in Egypt.
-            </div>
-            <div className="mt-6 text-xl text-muted-foreground">
-              Join us in transforming IVF outcomes with data.
             </div>
           </GlassCard>
         </div>
